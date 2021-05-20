@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codeopen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Recommendation</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <table> <! Table oluşturalım>
+       <tr> <! Table row>
+           <th>Please type <br> 0 for New York City<br>1 for Chicago <br> 2 for Los Angeles <br> 3 for Washington DC <br> 4 for Boston <br> 5 for San Diego <br> 6 for Silicon Valley <br> 7 for Seattle <br> 8 for Atlanta <br> 9 for Dallas <br> 10 for Miami <br> 11 for Austin <br> 12 for Orange Country <br> 13 for Denver <br> 14 for Nashville <br> 15 for Sacramento <br> 16 for Phoenix <br> 17 for Tucson <br> 18 for Pittsburg <br> 19 for San Francisco  <br> <br> <br> 0 for Female <br> 1 for Male</th> <! Table header>
+       </tr>
+ </table>
+
+
+
+ <div class="login">
+     <h1>Which Cab Firm Should You Invest?</h1>
+
+     <!--Main Input For Receiving Query to out ML -->
+     <form action="{{ url_for('predict')}}"method="post">
+         <input type="text" name="City" placeholder ="City" required="required" />
+         <input type="text" name="Population" placeholder ="Population" required="required" />
+         <input type="text" name="Age" placeholder ="Age" required="required" />
+          <input type="text" name="Gender" placeholder ="Gender" required="required" />
+         
+         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+ 
+ </div>
+
+ </body>
+ </html>
